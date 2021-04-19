@@ -34,28 +34,18 @@ class Category(models.Model):
         return reverse('shop:category_detail', args=[self.slug])
 
 
-class Measurement(models.Model):
-    name = models.CharField(max_length=50, db_index=True) 
-
-    def __str__(self) -> str:
-        return self.name   
-    
-    class Meta:
-        verbose_name = 'Единица измерения'
-        verbose_name_plural = 'Единицы измерения'
-
 
 
 
 class Product(models.Model):
     category = models.ForeignKey(
         Category, related_name='products', 
-        on_delete=models.CASCADE
-        )
-    measurement = models.ForeignKey(Measurement, related_name='measurement', null=True, on_delete=models.CASCADE)
+        on_delete=models.CASCADE,
+        blank=True, null=True)
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
     description = models.TextField(blank=True)
+    short_description = models.TextField(null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

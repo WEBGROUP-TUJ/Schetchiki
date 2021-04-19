@@ -19,12 +19,12 @@
                     </div>
                     <div class="korzina_content">
                         <h1>{{product.name}})</h1>
-                        <p>{{product.description}}</p>
+                        <p>{{product.short_description}}</p>
                         <h2> {{product.price}} сум</h2>
                         <div class="korzina_form">
                             <form action="{% url 'cart:cart_add' product.id %}" method="post">
                                 {% csrf_token %}
-                                <label for="">Ko'pligi : </label>
+                                <label for="">Количество : </label>
                                 {{ item.update_quantity_form.quantity }}
                                 {{ item.update_quantity_form.update }}
                                 {{item.measurement}}

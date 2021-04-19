@@ -10,32 +10,19 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
+                    {% for product in product_list %}
                     <div class="swiper-slide">
-                        <div class="slide-img"><img class="header-slider-image" src="{% static 'images/Rectangle 7.png' %}" alt="">
+                        <div class="slide-img"><img class="header-slider-image" src="{{product.image}}" alt="">
                         </div>
                         <div class="slide-text">
-                            <h4>ВЗЛЕТ ТСР-К (ТСРК-011)</h4>
-                            <p>Функциональные возможности: <br>
-                                • определение потребленного тепла на основании измерения расхода теплоносителя в
-                                прямом или обратном трубопроводах и температур на прямом и обратном трубопроводе;
-                                <br>
-                                • отображение текущей измерительной и архивной информации, а также зафиксированных
-                                нештатных состояний теплосистемы на индикаторе прибора; <br>
+                            <h4>{{product.name}}</h4>
+                            <p>{{product.short_description}}<br>
                             </p>
-                            <a href="#">Подробнее</a>
+                            <a href="{{product.get_absolute_url}}">Подробнее</a>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="slide-img"><img class="header-slider-image" src="{% static 'images/Rectangle 7.png' %}" alt="">
-                        </div>
-                        <div class="slide-text">
-                            <h4>ВЗЛЕТ ТСР-К (ТСРК-011)</h4>
-                            <p>Функциональные возможности: <br>
-                                • определение потребленного тепла на основании измерения расхода теплоносителя в
-                            </p>
-                            <a href="#">Подробнее</a>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
 
                 <!-- If we need navigation buttons -->
@@ -80,7 +67,7 @@
     <section class="tovari">
         <div class="container-fluid">
             <div class="tovari_line">
-                <div class="line_word">Новинки</div>
+                <div class="line_word">Товары:</div>
                 <div class="line_line"></div>
             </div>
             <div class="tovari_div">
@@ -88,7 +75,7 @@
                 {% for product in product_list %}
                 <div class="item">
                     <div class="item_img">
-                        <img src="{% static 'images/Rectangle 7.png' %}" alt="">
+                        <img src="{{product.image}}" alt="">
                     </div>
                     <p>{{product.name}}</p>
                     <h4>{{product.price}}</h4>
