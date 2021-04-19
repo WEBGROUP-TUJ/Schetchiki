@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
 
 {% block content %}
     <div class="order_div container">
@@ -8,7 +8,7 @@
                 </h3>
                 <p>Sizning buyurtmangiz qabul qilindi. Buyurtma raqami: <strong>{{ order.id }}</strong>.</p>
             </div>
-            <a class="home" href="{% url 'shop:category_list' %}">Uyga qaytish</a>
+            <a class="home" href="{% url 'shop:home' %}">Uyga qaytish</a>
         </div>
     </div>
 {% endblock %}

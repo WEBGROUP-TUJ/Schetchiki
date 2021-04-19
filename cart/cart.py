@@ -55,3 +55,4 @@ class Cart(object):
         
     def sum_of_items(self):
         return sum(item['quantity'] for item in self.cart.values())
+        

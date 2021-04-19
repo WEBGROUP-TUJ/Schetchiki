@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('address', models.CharField(max_length=150, verbose_name='Адрес')),
                 ('postal_code', models.CharField(max_length=30, verbose_name='Почтовый индекс')),
                 ('city', models.CharField(max_length=100, verbose_name='Город')),
-                ('tel_number', models.CharField(max_length=13, null=True, verbose_name='Номер телефона')),
+                ('phone_number', models.CharField(max_length=13, null=True, verbose_name='Номер телефона')),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('paid', models.BooleanField(default=False, verbose_name='Оплачено')),

@@ -2,12 +2,12 @@ from shop.models import Category
 from django.contrib import admin
 from django.urls import path
 
-from .views import CategoryListView, product_detail, product_list, CategoryDetailView, SearchResultsListView, CategoryListHomeView
+from .views import CategoryListView, product_detail, product_list, CategoryDetailView, SearchResultsListView, CategoryListHomeView, ProductList
 
 app_name = 'shop'
 
 urlpatterns = [
-    path('', CategoryListHomeView.as_view(), name='category_list'),
+    path('', ProductList.as_view(), name='home'),
     path('category/list/', CategoryListView.as_view(), name='categories'),
     path('category/<str:slug>/', CategoryDetailView.as_view(), name='category_detail'),
     path('<int:id>/<str:slug>/', product_detail, name='product_detail'),

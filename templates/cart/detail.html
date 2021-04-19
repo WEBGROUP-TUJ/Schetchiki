@@ -1,0 +1,59 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+
+{% block content %}
+
+
+    <main>
+
+        <section class="korzina">
+            <h3>Корзина</h3>
+            <div class="container-fluid">
+                
+                {% for item in cart %}
+                {% with product=item.product  %}
+                <div class="korzina_div">
+                    <div class="korzina_img">
+                        <img src="img/Rectangle 7.png" alt="">
+                    </div>
+                    <div class="korzina_content">
+                        <h1>{{product.name}})</h1>
+                        <p>{{product.description}}</p>
+                        <h2> {{product.price}} сум</h2>
+                        <div class="korzina_form">
+                            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                {% csrf_token %}
+                                <label for="">Ko'pligi : </label>
+                                {{ item.update_quantity_form.quantity }}
+                                {{ item.update_quantity_form.update }}
+                                {{item.measurement}}
+                                <input type="submit" value="Tahrirlash">
+                            </form>
+                            <div class="button_del">
+                                <a class="del" href="{% url "cart:cart_remove" product.id %}">Убрать</a>
+                                <a class="see" href="{{ product.get_absolute_url }}">Просмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endwith %}
+        {% endfor %}
+                
+                
+                <div class="total">
+                    <h2>Суммарная стоимость : <span class="total_price">{{cart.get_total_price}}</span> сум</h2>
+                </div>
+                <div class="zakaz">
+                    <a class="continue" href="{% url 'shop:home' %}">Продолжить покупку</a>
+                    <a class="arrange" href="{% url 'orders:order_create' %}">Оформить заказ</a>
+                </div>
+            </div>
+        </section>
+        
+
+    </main>
+    {% endblock content %}
+
+
+    

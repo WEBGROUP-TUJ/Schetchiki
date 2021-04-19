@@ -10,3 +10,4 @@ class CartAddProductForm(forms.Form):
         attrs={'class': 'form-control'}
         ))
     update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
+    

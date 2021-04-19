@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends '_base.html' %}
 {% load crispy_forms_tags %}
 
 {% load static %}
@@ -10,16 +10,16 @@
     <div class="container create">
         <div class="row" style="margin-top: 6%">
             <div class="col-md-8">
-                <h4 class="page-header">Buyurtma qilish</h4>
+                <h4 class="page-header">Оформление заказа</h4>
                 <form action="." method="post">
                     {% csrf_token %}
                     {{ form|crispy }}<br>
-                    <input type="submit" class="btn btn-primary" value="Buyurtma qilish">
+                    <input type="submit" class="btn btn-primary" value="Подтвердить заказ">
                 </form>
             </div>
             <div class="col-md-4">
                 <div class="page-header">
-                    Buyurtma
+                    Заказ
                 </div>
                 <ul class="list-group">
                     {% for item in cart %}
@@ -29,7 +29,7 @@
                         </li>
                     {% endfor %}
 
-                <li class="list-group-item active">Umumiy narx: {{ cart.get_total_price }}</li>
+                <li class="list-group-item active">Общая цена: {{ cart.get_total_price }}</li>
                 </ul>
 
             </div>

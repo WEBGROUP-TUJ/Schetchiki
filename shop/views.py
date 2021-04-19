@@ -35,7 +35,12 @@ def product_list(request, category_slug=None):
         'categories': categories,
         'products': products
     }
-    return render(request, 'shop/product/list.html', context)
+    return render(request, 'home.html', context)
+
+
+class ProductList(ListView):
+    model = Product
+    template_name = 'home.html'
 
 
 
@@ -48,7 +53,7 @@ def product_detail(request, id, slug):
         'product': product,
         'cart_product_form': cart_product_form
     }
-    return render(request, 'shop/product/detail.html', context)
+    return render(request, 'shop/product_detail.html', context)
 
 class CategoryListHomeView(ListView):
     model = Category
