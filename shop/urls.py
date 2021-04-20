@@ -7,9 +7,9 @@ from .views import CategoryListView, product_detail, product_list, CategoryDetai
 app_name = 'shop'
 
 urlpatterns = [
-    path('', ProductList.as_view(), name='home'),
     path('category/list/', CategoryListView.as_view(), name='categories'),
     path('category/<str:slug>/', CategoryDetailView.as_view(), name='category_detail'),
     path('<int:id>/<str:slug>/', product_detail, name='product_detail'),
     path('search/', SearchResultsListView.as_view(), name='search_results'),
+    path('', ProductList.as_view(), name='home'),
 ]

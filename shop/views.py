@@ -73,7 +73,7 @@ class CategoryDetailView(DetailView):
 class SearchResultsListView(ListView):
     model = Product
     context_object_name = 'product_list'
-    template_name = 'shop/product/search_results.html'
+    template_name = 'shop/search_results.html'
 
     def get_queryset(self):
         query = self.request.GET.get('q')

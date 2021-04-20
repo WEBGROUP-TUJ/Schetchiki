@@ -61,8 +61,8 @@
             <div class="header-find">
                 <a href="{% url 'shop:home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                 <div class="find">
-                    <form action="">
-                        <input type="text" placeholder="Поиск Товаров">
+                    <form action="{% url 'shop:search_results' %}" method="get">
+                        <input name="q" type="text" placeholder="Поиск">
                         <button type="submit"><img src="{% static 'images/find.png' %}" alt=""></button>
                     </form>
                 </div>
@@ -78,17 +78,6 @@
                     </div>
                 </div>
             </div>
-            <div class="mob-find">
-                <!-- <form class="form-inline mt-2 mt-md-0" action="{% url 'shop:search_results' %}" method="GET">
-                    <input name="q" type="text" placeholder="Поиск Товаров">
-                    <button type="submit"><img src="{% static 'images/find.png' %}" alt=""></button>
-                </form> -->
-                <form action="{% url 'shop:search_results' %}" method="GET">
-                    <input name="q" class="write" placeholder="Qidirish" aria-label="Search">
-                    <button class="send" type="submit"><img
-                            src="{% static 'img/searching-magnifying-glass.png' %}" alt=""></button>
-                </form>
-            </div>
         </div>
         <div class="full-line"></div>
         <nav class="nav">
@@ -98,7 +87,7 @@
                         <a class="" href="#">Магазин<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav_li">
-                        <a class="" href="tovar.html">Условия доставки<span class="sr-only">(current)</span></a>
+                        <a class="" href="#">Условия доставки<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav_li">
                         <a class="" href="#">О компании<span class="sr-only">(current)</span></a>
