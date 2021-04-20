@@ -1,0 +1,83 @@
+{% extends '_base.html' %}
+
+{% block title %}Поиск{% endblock title %}
+
+{% block content %}
+    <main>
+        <section class="tovari">
+            <div class="container-fluid">
+                <div class="tovari_line">
+                    <div class="line_word">Магазин</div>
+                    <div class="line_line"></div>
+                </div>
+                <div class="tovari_div">
+                    <!-- ЦИКЛ ОТСЮДА -->
+
+                    {% for product in product_list %}
+                    <div class="item">
+                        <div class="item_img">
+                            <img src="{{product.image}}" alt="">
+                        </div>
+                        <p>{{product.name}}</p>
+                        <h4>{{product.price}} сум</h4>
+                        <div class="item_buttons">
+                            <a href="{{product.get_absolute_url}}">Посмотреть</a>
+                        </div>
+                        <div class="dropdown_div">
+                            <form action="">
+                                <select name="" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                                <h5>штук</h5>
+                                <input type="submit" value="В корзину">
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                    
+                    <!-- ДО СЮДА -->
+                </div>
+                <div class="tovari_line">
+                    <div class="line_line"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info">
+            <div class="container-fluid">
+                <div class="info_div">
+                    <div class="info_icon">
+                        <img src="img/card.png" alt="">
+                    </div>
+                    <div class="info_text">
+                        <h4>Онлайн оплата</h4>
+                        <p>Вы можете оплатить товар <br> через <b>Payme</b></p>
+                    </div>
+                </div>
+                <div class="info_div">
+                    <div class="info_icon">
+                        <img src="img/truck.png" alt="">
+                    </div>
+                    <div class="info_text">
+                        <h4>Бесплатная доставка</h4>
+                        <p>В радиусе 1 километра <br> от филиала</p>
+                    </div>
+                </div>
+                <div class="info_div">
+                    <div class="info_icon">
+                        <img src="img/location.png" alt="">
+                    </div>
+                    <div class="info_text">
+                        <h4>Наш адрес</h4>
+                        <p>Главный офис: улица Мухтара <br> Ашрафий 108А</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% endblock content %}
+    

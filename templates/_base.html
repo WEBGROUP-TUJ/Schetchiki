@@ -59,7 +59,7 @@
         </div>
         <div class="container-fluid">
             <div class="header-find">
-                <a href=""><img src="{% static 'images/logo.png' %}" alt=""></a>
+                <a href="{% url 'shop:home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
                 <div class="find">
                     <form action="">
                         <input type="text" placeholder="Поиск Товаров">
@@ -79,9 +79,14 @@
                 </div>
             </div>
             <div class="mob-find">
-                <form action="">
-                    <input type="text" placeholder="Поиск Товаров">
+                <!-- <form class="form-inline mt-2 mt-md-0" action="{% url 'shop:search_results' %}" method="GET">
+                    <input name="q" type="text" placeholder="Поиск Товаров">
                     <button type="submit"><img src="{% static 'images/find.png' %}" alt=""></button>
+                </form> -->
+                <form action="{% url 'shop:search_results' %}" method="GET">
+                    <input name="q" class="write" placeholder="Qidirish" aria-label="Search">
+                    <button class="send" type="submit"><img
+                            src="{% static 'img/searching-magnifying-glass.png' %}" alt=""></button>
                 </form>
             </div>
         </div>
@@ -130,7 +135,7 @@
 
                     <!-- ==============ЭТО КОРЗИНА============== -->
 
-                    <a href="{{cart.cart_detail}}" class="kor_div"><img src="{% static 'images/korzina.png' %}" alt="">Корзина<div class="kor_num">{{cart.sum_of_items}}</div>
+                    <a href="{% url 'cart:cart_detail' %}" class="kor_div"><img src="{% static 'images/korzina.png' %}" alt="">Корзина<div class="kor_num">{{cart.sum_of_items}}</div>
                     </a>
                     <div class="mob_but"><img src="{% static 'images/menu.png' %}" alt=""></div>
                 </ul>
