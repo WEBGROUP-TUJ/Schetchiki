@@ -7,7 +7,8 @@ from cart.forms import CartAddProductForm
 
 from django.views.generic import (
     ListView,
-    DetailView
+    DetailView,
+    TemplateView
 )
 '''
 class ProductListView(ListView):
@@ -42,8 +43,10 @@ class ProductList(ListView):
     model = Product
     template_name = 'home.html'
 
-
-
+class AllProducts(ListView):
+    model = Product
+    template_name = 'shop/products.html'
+    context_object_name = 'product_list'
 
 
 def product_detail(request, id, slug):
@@ -55,20 +58,10 @@ def product_detail(request, id, slug):
     }
     return render(request, 'shop/product_detail.html', context)
 
-class CategoryListHomeView(ListView):
-    model = Category
-    context_object_name = 'category_list'
-    template_name = 'shop/product/list.html'
-
 class CategoryListView(ListView):
     model = Category
     context_object_name = 'category_list'
     template_name = 'shop/product/category_list.html'
-
-class CategoryDetailView(DetailView):
-    model = Category
-    context_object_name = 'category'
-    template_name = 'shop/product/category_detail.html'
 
 class SearchResultsListView(ListView):
     model = Product
@@ -80,3 +73,10 @@ class SearchResultsListView(ListView):
         return Product.objects.filter(
             Q(name__icontains=query) | Q(description__icontains=query)
         )
+
+
+class AboutPage(TemplateView):
+    template_name = 'info/about.html'
+
+class DeliveryInfo(TemplateView):
+    template_name = 'info/delivery.html'

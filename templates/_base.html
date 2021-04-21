@@ -84,13 +84,13 @@
             <div class="collap_se">
                 <ul class="nav_bar">
                     <li class="nav_li">
-                        <a class="" href="#">Магазин<span class="sr-only">(current)</span></a>
+                        <a class="" href="{% url 'shop:product_list' %}">Магазин<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav_li">
-                        <a class="" href="#">Условия доставки<span class="sr-only">(current)</span></a>
+                        <a class="" href="{% url 'shop:deliv' %}">Условия доставки<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav_li">
-                        <a class="" href="#">О компании<span class="sr-only">(current)</span></a>
+                        <a class="" href="{% url 'shop:about' %}">О компании<span class="sr-only">(current)</span></a>
                     </li>
                     <!-- <li class="nav_li registr">
                          
@@ -104,13 +104,13 @@
                     <div class="mob-li">
                         <ul class="mob-ul">
                             <li>
-                                <a class="" href="#">Магазин<span class="sr-only">(current)</span></a>
+                                <a class="" href="{% url 'shop:product_list' %}">Магазин<span class="sr-only">(current)</span></a>
                             </li>
                             <li>
-                                <a class="" href="#">Условия доставки<span class="sr-only">(current)</span></a>
+                                <a class="" href="{% url 'shop:deliv' %}">Условия доставки<span class="sr-only">(current)</span></a>
                             </li>
                             <li>
-                                <a class="" href="#">О компании<span class="sr-only">(current)</span></a>
+                                <a class="" href="{% url 'shop:about' %}">О компании<span class="sr-only">(current)</span></a>
                             </li>
                             <!-- <li>
                                  
@@ -154,7 +154,7 @@
                     <div class="fc">
                         <a href="" class="bot_menu">Условия доставки</a>
                         <a href="" class="bot_menu">Магазин</a>
-                        <a href="" class="bot_menu">О компании</a>
+                        <a href="{% url 'shop:about' %}" class="bot_menu">О компании</a>
                         <a href="" class="bot_menu">Контакты</a>
                     </div>
                 </div>
