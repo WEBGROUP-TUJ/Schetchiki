@@ -35,10 +35,10 @@
                                 {{item.measurement}}
                                 <input type="submit" value="Изменить">
                             </form>
-                            <div class="button_del">
+                            
                                 <a class="del" href="{% url "cart:cart_remove" product.id %}">O'chirish</a>
                                 <a class="see" href="{{ product.get_absolute_url }}">Qarang</a>
-                            </div>
+                            
                             <h4>Bitta buyum narxi : <span class="one_price">{{item.price}}</span></h4>
                             <h4>Narx : <span class="price">{{item.total_price}}</span></h4>
                         </div>
