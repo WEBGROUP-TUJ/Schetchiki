@@ -29,11 +29,9 @@
                                 {{ item.update_quantity_form.update }}
                                 {{item.measurement}}
                                 <input type="submit" value="Изменить">
-                            </form>
-                            <div class="button_del">
                                 <a class="del" href="{% url "cart:cart_remove" product.id %}">Убрать</a>
                                 <a class="see" href="{{ product.get_absolute_url }}">Просмотреть</a>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
