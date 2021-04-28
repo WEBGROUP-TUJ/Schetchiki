@@ -30,7 +30,7 @@
                                 {{item.measurement}}
                                 <input type="submit" value="Изменить">
                                 <a class="see" href="{{ product.get_absolute_url }}">Просмотреть</a>
-                                <a class="del" href="{% url "cart:cart_remove" product.id %}"> <img src="{% static 'images/crossed.png' %}" alt="{% product.name %}"></a>
+                                <a class="del" href="{% url "cart:cart_remove" product.id %}"> <img src="{% static 'images/crossed.png' %}" alt=""></a>
                             </form>
                         </div>
                     </div>
