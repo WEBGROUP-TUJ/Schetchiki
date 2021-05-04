@@ -41,17 +41,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles',    
+    'django.contrib.staticfiles',
+    'django.contrib.sites',
     
     #3-rd party
     'grappelli',
     'debug_toolbar',
     'crispy_forms',
+    'allauth',
+    'allauth.account',
 
     #local
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'users.apps.UsersConfig',
     
 
     
@@ -182,6 +186,23 @@ CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 
+AUTH_USER_MODEL = 'users.CustomUser'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+
+LOGIN_REDIRECT_URL = 'shop:home'
+ACCOUNT_LOGOUT_REDIRECT = 'shop:home'
+
+ACCOUNT_SESSION_REMEMBER = True
+
 import socket
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
@@ -194,6 +215,8 @@ if ENVIRONMENT=='production':
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+SITE_ID = 1
 
 #heroku
 

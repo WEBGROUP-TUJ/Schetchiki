@@ -1,6 +1,5 @@
 import os
 from django.db import models
-from django.db.models import indexes
 from django.urls import reverse
 import datetime
 from django.utils import timezone
