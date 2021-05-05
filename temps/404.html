@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#201F1F">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo1.png" />
-    <title>{% block title %}Schetchiki{% endblock title %}</title>
+    <title>Schetchiki</title>
     <!-- =================Ссылки на файлы============= -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -31,12 +30,14 @@
 
     <!-- ============================================== -->
 
-    <link rel="stylesheet" href="{% static 'css/style-min.css' %}">
-    <script defer src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script defer src="{% static 'js/parallax.min.js' %}"></script>
-    <script defer src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="css/style-min.css">
+    <link rel="stylesheet" href="dist/css/splide.min.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <script defer src="js/jquery-3.2.1.min.js"></script>
+    <script defer src="js/parallax.min.js"></script>
+    <script defer src="js/script.js"></script>
 
-    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="js/wow.min.js"></script>
     <script>
         new WOW({
             mobile: false,       // default
@@ -51,25 +52,25 @@
             <div class="social">
                 <h4>Соц сети:</h4>
                 <div class="social-media">
-                    <a href=""><img src="{% static 'images/soc1.png' %}" alt=""></a>
-                    <a href=""><img src="{% static 'images/soc2.png' %}" alt=""></a>
-                    <a href=""><img src="{% static 'images/soc3.png' %}" alt=""></a>
+                    <a href=""><img src="img/soc1.png" alt=""></a>
+                    <a href=""><img src="img/soc2.png" alt=""></a>
+                    <a href=""><img src="img/soc3.png" alt=""></a>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="header-find">
-                <a href="{% url 'shop:home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
+                <a href=""><img src="img/logo.png" alt=""></a>
                 <div class="find">
-                    <form action="{% url 'shop:search_results' %}" method="get">
-                        <input name="q" type="text" placeholder="Поиск">
-                        <button type="submit"><img src="{% static 'images/find.png' %}" alt=""></button>
+                    <form action="">
+                        <input type="text" placeholder="Поиск Товаров">
+                        <button type="submit"><img src="img/find.png" alt=""></button>
                     </form>
                 </div>
                 <div class="numbers">
                     <div class="num_icon">
                         <div class="call">
-                            <img src="{% static 'images/call.png' %}" alt="">
+                            <img src="img/call.png" alt="">
                         </div>
                         <div class="num">
                             <h5> 93 355 51 45 <br>
@@ -78,83 +79,94 @@
                     </div>
                 </div>
             </div>
+            <div class="mob-find">
+                <form action="">
+                    <input type="text" placeholder="Поиск Товаров">
+                    <button type="submit"><img src="img/find.png" alt=""></button>
+                </form>
+            </div>
         </div>
         <div class="full-line"></div>
         <nav class="nav">
             <div class="collap_se">
                 <ul class="nav_bar">
                     <li class="nav_li">
-                        <a class="" href="{% url 'shop:product_list' %}">Магазин<span class="sr-only">(current)</span></a>
+                        <a class="" href="index.html">Магазин<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav_li">
-                        <a class="" href="{% url 'shop:deliv' %}">Условия доставки<span class="sr-only">(current)</span></a>
+                        <a class="" href="tovar.html">Условия доставки<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav_li">
-                        <a class="" href="{% url 'shop:about' %}">О компании<span class="sr-only">(current)</span></a>
+                        <a class="" href="#">О компании<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav_li">
+                        <a class="" href="#">Контакты<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav_li registr">
-                         {% if user.is_authenticated %}
-                            <a href="{% url 'account_logout' %}">Выйти</a>
-                         {% else %}
-                            <a class="" href="{% url 'account_login' %}">Войти<span class="sr-only">(current)</span></a>
-                            <a class="" href="{% url 'account_signup' %}">Регистрация<span class="sr-only">(current)</span></a>
-                        {% endif %}
+                        <a class="" href="#">Регистрация<span class="sr-only">(current)</span></a>
                     </li>
 
                     <!-- ЭТО МОБИЛЬНАЯ ВЕРСИЯ mob-li -->
                     <div class="mob-li">
                         <ul class="mob-ul">
                             <li>
-                                <a class="" href="{% url 'shop:product_list' %}">Магазин<span class="sr-only">(current)</span></a>
+                                <a class="" href="#">Магазин<span class="sr-only">(current)</span></a>
                             </li>
                             <li>
-                                <a class="" href="{% url 'shop:deliv' %}">Условия доставки<span class="sr-only">(current)</span></a>
+                                <a class="" href="#">Условия доставки<span class="sr-only">(current)</span></a>
                             </li>
                             <li>
-                                <a class="" href="{% url 'shop:about' %}">О компании<span class="sr-only">(current)</span></a>
+                                <a class="" href="#">О компании<span class="sr-only">(current)</span></a>
                             </li>
-                            {% if user.is_authenticated %}
-                            <a href="{% url 'account_logout' %}">Выйти</a>
-                         {% else %}
-                            <a class="" href="{% url 'account_login' %}">Войти<span class="sr-only">(current)</span></a>
-                            <a class="" href="{% url 'account_signup' %}">Регистрация<span class="sr-only">(current)</span></a>
-                        {% endif %}
+                            <li>
+                                <a class="" href="#">Контакты<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li>
+                                <a class="" href="#">Регистрация<span class="sr-only">(current)</span></a>
+                            </li>
                         </ul>
                     </div>
 
                     <!-- ==============ЭТО КОРЗИНА============== -->
 
-                    <a href="{% url 'cart:cart_detail' %}" class="kor_div"><img src="{% static 'images/korzina.png' %}" alt="">Корзина<div class="kor_num">{{cart.sum_of_items}}</div>
+                    <a href="korzina.html" class="kor_div"><img src="img/korzina.png" alt="">Корзина<div class="kor_num">2</div>
                     </a>
-                    <div class="mob_but"><img src="{% static 'images/menu.png' %}" alt=""></div>
+                    <div class="mob_but"><img src="img/menu.png" alt=""></div>
                 </ul>
             </div>
         </nav>
 
         <div class="full-line"></div>
     </header>
-    {% block content %}
-    
-    
-    {% endblock content %}
+
+    <main>
+        <section class="mistake">
+            <div class="container-fluid">
+                <h1>Простите, но по вашему запросу ничего не найденно !</h1>
+                <img src="img/404.jpg" alt="">
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="container-fluid">
             <div class="footer-top">
                 <div class="foot_left col-xl-4">
-                    <img class="footer_logo" src="{% static 'images/logo.png' %}" alt="">
+                    <img class="footer_logo" src="img/logo.png" alt="">
                     <h5>OOO GENEREL ELECTRIC INVEST- это самый удобный магазин счётчиков</h5>
                     <div class="messengers">
-                        <a href=""><img src="{% static 'images/soc1.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/soc2.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/soc3.png' %}" alt=""></a>
+                        <a href=""><img src="img/soc1.png" alt=""></a>
+                        <a href=""><img src="img/soc2.png" alt=""></a>
+                        <a href=""><img src="img/soc3.png" alt=""></a>
                     </div>
                 </div>
                 <div class="footer-center col-xl-4">
                     <h3>Информация</h3>
                     <div class="fc">
-                        <a href="{% url 'shop:deliv' %}" class="bot_menu">Условия доставки</a>
-                        <a href="{% url 'shop:about' %}" class="bot_menu">Магазин</a>
-                        <a href="{% url 'shop:about' %}" class="bot_menu">О компании</a>
+                        <a href="" class="bot_menu">Условия доставки</a>
+                        <a href="" class="bot_menu">Магазин</a>
+                        <a href="" class="bot_menu">Филиал</a>
+                        <a href="" class="bot_menu">О компании</a>
+                        <a href="" class="bot_menu">Контакты</a>
                     </div>
                 </div>
                 <div class="footer_right col-xl-4">
@@ -162,7 +174,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div><a href="https://webgroup-tuj.github.io/"><img src="{% static 'images/webgroup.png' %}" alt=""></a><h4>Главный офис: улица  Мухтара Ашрафий 108А</h4></div>
+                <div><img src="img/webgroup.png" alt=""><h4>Главный офис: улица  Мухтара Ашрафий 108А</h4></div>
             </div>
         </div>
     </footer>
