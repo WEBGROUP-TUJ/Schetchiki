@@ -21,8 +21,6 @@ class ProductListView(ListView):
 '''
 
 
-
-
 def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
@@ -43,6 +41,7 @@ class ProductList(ListView):
     model = Product
     template_name = 'home.html'
 
+
 class AllProducts(ListView):
     model = Product
     template_name = 'shop/products.html'
@@ -58,10 +57,12 @@ def product_detail(request, id, slug):
     }
     return render(request, 'shop/product_detail.html', context)
 
+
 class CategoryListView(ListView):
     model = Category
     context_object_name = 'category_list'
     template_name = 'shop/product/category_list.html'
+
 
 class SearchResultsListView(ListView):
     model = Product
@@ -77,6 +78,7 @@ class SearchResultsListView(ListView):
 
 class AboutPage(TemplateView):
     template_name = 'info/about.html'
+
 
 class DeliveryInfo(TemplateView):
     template_name = 'info/delivery.html'
