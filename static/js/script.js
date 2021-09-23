@@ -23,8 +23,8 @@ const swiper = new Swiper('.swiper-container', {
     // cssMode: true,
     spaceBetween: 100,
     loop: true,
-    effect: 'fade',
     speed: 1000,
+    effect: 'fade',
     autoplay: {
         delay: 4000,
         disableOnInteraction: false,
