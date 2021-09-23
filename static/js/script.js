@@ -23,7 +23,7 @@ const swiper = new Swiper('.swiper-container', {
     // cssMode: true,
     spaceBetween: 100,
     loop: true,
-    effect: 'coverflow',
+    effect: 'fade',
     speed: 1000,
     autoplay: {
         delay: 4000,
