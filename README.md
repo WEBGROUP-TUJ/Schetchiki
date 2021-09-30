@@ -1,11 +1,7 @@
 # Rozgor
 
 ## Данный интернет магазин сделан при помощи Django
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/WEBGROUP-TUJ/Schetchiki?style=for-the-badge"> <br />
-
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/WEBGROUP-TUJ/Schetchiki/Heroku%20Deploy?label=Heroku%20deploy&style=for-the-badge">
-
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/WEBGROUP-TUJ/Schetchiki/Docker?color=%232496ED&label=Docker&logo=%232496ED&logoColor=%232496ED&style=for-the-badge">
+![Github Repo Size](https://img.shields.io/github/repo-size/WEBGROUP-TUJ/Schetchiki?style=for-the-badge) ![Heroku](https://img.shields.io/github/workflow/status/WEBGROUP-TUJ/Schetchiki/Heroku%20Deploy?label=Heroku%20deploy&style=for-the-badge) ![Docker](https://img.shields.io/github/workflow/status/WEBGROUP-TUJ/Schetchiki/Docker?color=%232496ED&label=Docker&logo=%232496ED&logoColor=%232496ED&style=for-the-badge)
 
 ## О проекте
 
