@@ -25,8 +25,12 @@
 ## Установка:
 ### С помощью Docker:
 
-* ```docker-compose up -d --build```
-* ```docker-compose exec web python manage.py migrate```
+```properties
+docker-compose up -d --build
+```
+```properties
+docker-compose exec web python manage.py migrate
+```
 
 ### Проект находится под лицензией [MIT](https://github.com/WEBGROUP-TUJ/Rozgor/blob/main/LICENSE)
 
